@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/piotr/CLionProjects/SK/Commons.h
+list
+-
+
+/home/piotr/CLionProjects/SK/main.cpp
+string.h
+-
+unistd.h
+-
+netdb.h
+-
+iostream
+-
+list
+-
+Commons.h
+/home/piotr/CLionProjects/SK/Commons.h
+sstream
+-
+algorithm
+-
+iterator
+-
+vector
+-
+
