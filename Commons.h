@@ -1,3 +1,7 @@
+#include <utility>
+
+#include <utility>
+
 //
 // Created by piotr on 03.12.18.
 //
@@ -12,10 +16,12 @@
 #define MESSAGE "message"
 #define ENTER "enter"
 #define CREATE "create"
+#define ROOM_LIST "rooms"
 #define OK "ok"
 #define NOT_OK "notOk"
 #define  LOGOUT "logout"
 #define BUFF_SIZE 100
+#define DELIMITER ";"
 
 using namespace std;
 
@@ -39,11 +45,12 @@ public:
     int fd;
     bool logged;
 
-    User(const std::__cxx11::string &nick, const std::__cxx11::string &password, bool logged) : nick(nick),
-                                                                                                password(password),
-                                                                                                activeRoom(NULL),
-                                                                                                logged(logged),
-                                                                                                fd(-1) {}
+    User(std::__cxx11::string nick, std::__cxx11::string password, bool logged) : nick(std::move(nick)),
+                                                                                  password(std::move(
+                                                                                          password)),
+                                                                                  activeRoom(NULL),
+                                                                                  logged(logged),
+                                                                                  fd(-1) {}
 };
 
 class Message {

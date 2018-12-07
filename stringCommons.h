@@ -34,6 +34,9 @@ string trim_copy(
         const std::string& s,
         const std::string& delimiters = " \f\n\r\t\v" );
 
+std::string get_first_word(std::string &s, const string &delimiter);
+
+
 
 
 #endif //SK_STRING_H
