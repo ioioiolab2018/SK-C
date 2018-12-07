@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/SK.dir/main.cpp.o CMakeFiles/SK.dir/Commons.cpp.o  -o SK -pthread 
+/usr/bin/c++  -g   CMakeFiles/SK.dir/main.cpp.o CMakeFiles/SK.dir/Commons.cpp.o CMakeFiles/SK.dir/stringCommons.cpp.o  -o SK -pthread 

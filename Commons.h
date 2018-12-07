@@ -6,6 +6,16 @@
 #define SK_COMMONS_H
 
 #include <list>
+#define START "&"
+#define END "%"
+#define LOGIN "login"
+#define MESSAGE "message"
+#define ENTER "enter"
+#define CREATE "create"
+#define OK "ok"
+#define NOT_OK "notOk"
+#define  LOGOUT "logout"
+#define BUFF_SIZE 100
 
 using namespace std;
 

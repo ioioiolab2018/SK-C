@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/piotr/CLionProjects/SK/Commons.h
+/home/piotr/CLionProjects/SK-C/Commons.h
 list
 -
 
-/home/piotr/CLionProjects/SK/main.cpp
+/home/piotr/CLionProjects/SK-C/main.cpp
 string.h
 -
 unistd.h
@@ -22,7 +22,7 @@ iostream
 list
 -
 Commons.h
-/home/piotr/CLionProjects/SK/Commons.h
+/home/piotr/CLionProjects/SK-C/Commons.h
 sstream
 -
 algorithm
@@ -30,5 +30,11 @@ algorithm
 iterator
 -
 vector
+-
+stringCommons.h
+/home/piotr/CLionProjects/SK-C/stringCommons.h
+
+/home/piotr/CLionProjects/SK-C/stringCommons.h
+string
 -
 

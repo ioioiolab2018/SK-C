@@ -43,10 +43,10 @@ RM = /home/piotr/Clion/clion-2018.3/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/piotr/CLionProjects/SK
+CMAKE_SOURCE_DIR = /home/piotr/CLionProjects/SK-C
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/piotr/CLionProjects/SK/cmake-build-debug
+CMAKE_BINARY_DIR = /home/piotr/CLionProjects/SK-C/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/SK.dir/depend.make
@@ -59,43 +59,58 @@ include CMakeFiles/SK.dir/flags.make
 
 CMakeFiles/SK.dir/main.cpp.o: CMakeFiles/SK.dir/flags.make
 CMakeFiles/SK.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piotr/CLionProjects/SK/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SK.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SK.dir/main.cpp.o -c /home/piotr/CLionProjects/SK/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SK.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SK.dir/main.cpp.o -c /home/piotr/CLionProjects/SK-C/main.cpp
 
 CMakeFiles/SK.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SK.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piotr/CLionProjects/SK/main.cpp > CMakeFiles/SK.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piotr/CLionProjects/SK-C/main.cpp > CMakeFiles/SK.dir/main.cpp.i
 
 CMakeFiles/SK.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SK.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piotr/CLionProjects/SK/main.cpp -o CMakeFiles/SK.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piotr/CLionProjects/SK-C/main.cpp -o CMakeFiles/SK.dir/main.cpp.s
 
 CMakeFiles/SK.dir/Commons.cpp.o: CMakeFiles/SK.dir/flags.make
 CMakeFiles/SK.dir/Commons.cpp.o: ../Commons.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piotr/CLionProjects/SK/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SK.dir/Commons.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SK.dir/Commons.cpp.o -c /home/piotr/CLionProjects/SK/Commons.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SK.dir/Commons.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SK.dir/Commons.cpp.o -c /home/piotr/CLionProjects/SK-C/Commons.cpp
 
 CMakeFiles/SK.dir/Commons.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SK.dir/Commons.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piotr/CLionProjects/SK/Commons.cpp > CMakeFiles/SK.dir/Commons.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piotr/CLionProjects/SK-C/Commons.cpp > CMakeFiles/SK.dir/Commons.cpp.i
 
 CMakeFiles/SK.dir/Commons.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SK.dir/Commons.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piotr/CLionProjects/SK/Commons.cpp -o CMakeFiles/SK.dir/Commons.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piotr/CLionProjects/SK-C/Commons.cpp -o CMakeFiles/SK.dir/Commons.cpp.s
+
+CMakeFiles/SK.dir/stringCommons.cpp.o: CMakeFiles/SK.dir/flags.make
+CMakeFiles/SK.dir/stringCommons.cpp.o: ../stringCommons.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SK.dir/stringCommons.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SK.dir/stringCommons.cpp.o -c /home/piotr/CLionProjects/SK-C/stringCommons.cpp
+
+CMakeFiles/SK.dir/stringCommons.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SK.dir/stringCommons.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/piotr/CLionProjects/SK-C/stringCommons.cpp > CMakeFiles/SK.dir/stringCommons.cpp.i
+
+CMakeFiles/SK.dir/stringCommons.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SK.dir/stringCommons.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/piotr/CLionProjects/SK-C/stringCommons.cpp -o CMakeFiles/SK.dir/stringCommons.cpp.s
 
 # Object files for target SK
 SK_OBJECTS = \
 "CMakeFiles/SK.dir/main.cpp.o" \
-"CMakeFiles/SK.dir/Commons.cpp.o"
+"CMakeFiles/SK.dir/Commons.cpp.o" \
+"CMakeFiles/SK.dir/stringCommons.cpp.o"
 
 # External object files for target SK
 SK_EXTERNAL_OBJECTS =
 
 SK: CMakeFiles/SK.dir/main.cpp.o
 SK: CMakeFiles/SK.dir/Commons.cpp.o
+SK: CMakeFiles/SK.dir/stringCommons.cpp.o
 SK: CMakeFiles/SK.dir/build.make
 SK: CMakeFiles/SK.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piotr/CLionProjects/SK/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable SK"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable SK"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SK.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +123,6 @@ CMakeFiles/SK.dir/clean:
 .PHONY : CMakeFiles/SK.dir/clean
 
 CMakeFiles/SK.dir/depend:
-	cd /home/piotr/CLionProjects/SK/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/piotr/CLionProjects/SK /home/piotr/CLionProjects/SK /home/piotr/CLionProjects/SK/cmake-build-debug /home/piotr/CLionProjects/SK/cmake-build-debug /home/piotr/CLionProjects/SK/cmake-build-debug/CMakeFiles/SK.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/piotr/CLionProjects/SK-C/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/piotr/CLionProjects/SK-C /home/piotr/CLionProjects/SK-C /home/piotr/CLionProjects/SK-C/cmake-build-debug /home/piotr/CLionProjects/SK-C/cmake-build-debug /home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles/SK.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/SK.dir/depend
 

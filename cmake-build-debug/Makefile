@@ -48,10 +48,10 @@ RM = /home/piotr/Clion/clion-2018.3/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/piotr/CLionProjects/SK
+CMAKE_SOURCE_DIR = /home/piotr/CLionProjects/SK-C
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/piotr/CLionProjects/SK/cmake-build-debug
+CMAKE_BINARY_DIR = /home/piotr/CLionProjects/SK-C/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/piotr/CLionProjects/SK/cmake-build-debug/CMakeFiles /home/piotr/CLionProjects/SK/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles /home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/piotr/CLionProjects/SK/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+stringCommons.o: stringCommons.cpp.o
+
+.PHONY : stringCommons.o
+
+# target to build an object file
+stringCommons.cpp.o:
+	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/stringCommons.cpp.o
+.PHONY : stringCommons.cpp.o
+
+stringCommons.i: stringCommons.cpp.i
+
+.PHONY : stringCommons.i
+
+# target to preprocess a source file
+stringCommons.cpp.i:
+	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/stringCommons.cpp.i
+.PHONY : stringCommons.cpp.i
+
+stringCommons.s: stringCommons.cpp.s
+
+.PHONY : stringCommons.s
+
+# target to generate assembly for a file
+stringCommons.cpp.s:
+	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/stringCommons.cpp.s
+.PHONY : stringCommons.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... stringCommons.o"
+	@echo "... stringCommons.i"
+	@echo "... stringCommons.s"
 .PHONY : help
 
 

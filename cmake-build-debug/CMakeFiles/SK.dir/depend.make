@@ -6,4 +6,8 @@ CMakeFiles/SK.dir/Commons.cpp.o: ../Commons.h
 
 CMakeFiles/SK.dir/main.cpp.o: ../Commons.h
 CMakeFiles/SK.dir/main.cpp.o: ../main.cpp
+CMakeFiles/SK.dir/main.cpp.o: ../stringCommons.h
+
+CMakeFiles/SK.dir/stringCommons.cpp.o: ../stringCommons.cpp
+CMakeFiles/SK.dir/stringCommons.cpp.o: ../stringCommons.h
 

@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <iterator>
 #include <vector>
-
+#include "stringCommons.h"
 
 using namespace std;
 
@@ -85,7 +85,6 @@ int main(int argc, char *argv[]) {
     while (run) {
         if (noThread < 10) {
             cout << "Listening" << endl;
-
             //this is where client connects. svr will hang in this mode until client conn
             int connFd = accept(listenFd, (struct sockaddr *) &clntAdd, &len);
 
@@ -117,18 +116,55 @@ void split1(const std::string &str, Container &cont) {
 
 
 void *clientConectionHandler(void *data) {
-    struct thread_data *th_data = (struct thread_data *) data;
+
+    auto *th_data = (struct thread_data *) data;
+
     pthread_detach(pthread_self());
-    cout << "Thread No: " << pthread_self() << endl;
-    char test[300];
-    bzero(test, 301);
-    bool loop = false;
-    while (!loop) {
-        bzero(test, 301);
-        read(th_data->fd, test, 300);
-        //char str[] = "The quick brown fox jumps over the lazy dog";
+    cout << "New client, thread No: " << pthread_self() << endl;
+
+    bool run = true;
+    ssize_t r = 0;
+    char buf[BUFF_SIZE];
+    string message;
+    string lastBuffer;
+    bool next= true;
+
+    while (run) {
+        bzero(buf, BUFF_SIZE + 1);
+        if(next) {
+            r = read(th_data->fd, buf, BUFF_SIZE);
+        }
+        if (r > 0 || !next) {
+            message = buf;
+            message = lastBuffer.append(message);
+            ssize_t start=message.find(START);
+            if(start == string::npos){
+                next= true;
+                lastBuffer=" ";
+                continue;
+            }
+            message.erase(0, static_cast<unsigned long>(start));
+
+            ssize_t end =message.find(END);
+            if(end  == string::npos){
+                lastBuffer = message;
+                continue;
+            }
+            else{
+                next=false;
+                lastBuffer=message.substr(static_cast<unsigned long>(end)+1, message.length());
+                message.erase(static_cast<unsigned long>(end), message.length()-1);
+                message.erase(0, 1);
+            }
+        } else {
+            continue;
+        }
+        trim_inplace(message);
+;
         vector<std::string> words;
-        split1(test, words);
+        cout << message <<" RESZTA: "<< lastBuffer<< endl;
+        continue;
+        split1(buf, words);
         if (!words.empty()) {
             if (words[0] == "login") {
                 cout << "logowanie #############" << endl;
@@ -163,7 +199,7 @@ void *clientConectionHandler(void *data) {
         if (!words.empty()) {
             if (words[0] == "message") {
                 for (const auto &user: *(th_data->client->activeRoom->users)) {
-                    if(th_data->client->nick != user.nick) {
+                    if (th_data->client->nick != user.nick) {
                         char *od = const_cast<char *>(words[1].c_str());
                         write(user.fd, od, sizeof(od));
                     }
@@ -171,7 +207,7 @@ void *clientConectionHandler(void *data) {
             }
         }
 
-        string tester(test);
+        string tester(buf);
         if (tester == "exit")
             break;
     }

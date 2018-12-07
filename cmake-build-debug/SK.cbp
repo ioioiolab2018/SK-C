@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/piotr/CLionProjects/SK/cmake-build-debug"/>
+				<Option working_dir="/home/piotr/CLionProjects/SK-C/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/piotr/CLionProjects/SK/cmake-build-debug"/>
+				<Option working_dir="/home/piotr/CLionProjects/SK-C/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/piotr/CLionProjects/SK/cmake-build-debug"/>
+				<Option working_dir="/home/piotr/CLionProjects/SK-C/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SK">
-				<Option output="/home/piotr/CLionProjects/SK/cmake-build-debug/SK" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/piotr/CLionProjects/SK/cmake-build-debug"/>
+				<Option output="/home/piotr/CLionProjects/SK-C/cmake-build-debug/SK" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/piotr/CLionProjects/SK-C/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 SK"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 SK"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SK/fast">
-				<Option output="/home/piotr/CLionProjects/SK/cmake-build-debug/SK" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/piotr/CLionProjects/SK/cmake-build-debug"/>
+				<Option output="/home/piotr/CLionProjects/SK-C/cmake-build-debug/SK" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/piotr/CLionProjects/SK-C/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,23 +77,29 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 SK/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 SK/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/piotr/CLionProjects/SK-C/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/piotr/CLionProjects/SK/Commons.cpp">
+		<Unit filename="/home/piotr/CLionProjects/SK-C/Commons.cpp">
 			<Option target="SK"/>
 		</Unit>
-		<Unit filename="/home/piotr/CLionProjects/SK/Commons.h">
+		<Unit filename="/home/piotr/CLionProjects/SK-C/Commons.h">
 			<Option target="SK"/>
 		</Unit>
-		<Unit filename="/home/piotr/CLionProjects/SK/main.cpp">
+		<Unit filename="/home/piotr/CLionProjects/SK-C/main.cpp">
 			<Option target="SK"/>
 		</Unit>
-		<Unit filename="/home/piotr/CLionProjects/SK/CMakeLists.txt">
+		<Unit filename="/home/piotr/CLionProjects/SK-C/stringCommons.cpp">
+			<Option target="SK"/>
+		</Unit>
+		<Unit filename="/home/piotr/CLionProjects/SK-C/stringCommons.h">
+			<Option target="SK"/>
+		</Unit>
+		<Unit filename="/home/piotr/CLionProjects/SK-C/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
