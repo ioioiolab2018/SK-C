@@ -222,20 +222,20 @@ void *clientConectionHandler(void *data) {
             }
 
         } else if (command == CREATE) {
-            bool ok = false;
+            bool ok = true;
             string name = get_first_word(message, DELIMITER);
             for (auto &room : *(th_data->rooms)) {
                 if (room->Name == name) {
-                    ok = true;
+                    ok = false;
                     break;
                 }
             }
             if (ok) {
                 th_data->rooms->push_back(new Room(name, " "));
-                reply = START + CREATE + DELIMITER + NOT_OK + END;
+                reply = START + CREATE + DELIMITER + OK + END;
                 send = true;
             } else {
-                reply = START + CREATE + DELIMITER + OK + END;
+                reply = START + CREATE + DELIMITER + NOT_OK + END;
                 send = true;
             }
 
