@@ -105,14 +105,6 @@ int main(int argc, char *argv[]) {
     }
 }
 
-template<class Container>
-void split1(const std::string &str, Container &cont) {
-    istringstream iss(str);
-    copy(std::istream_iterator<std::string>(iss),
-         istream_iterator<std::string>(),
-         back_inserter(cont));
-}
-
 
 void *clientConectionHandler(void *data) {
     bool connected = true;
@@ -170,23 +162,25 @@ void *clientConectionHandler(void *data) {
 
         if (command == LOGIN) {
             string nick = get_first_word(message, DELIMITER);
+            bool ok = true;
             for (auto &user : *(th_data->users)) {
                 if (user->nick == nick) {
                     cout << "JEST JUZ TAKI UZYTKOWNIK" << endl;
                     reply = START + LOGIN + DELIMITER + NOT_OK + END;
                     send = true;
+                    ok = false;
                     continue;
                 }
-
             }
-            User *newUser = new User(nick, " ", true);
-            newUser->fd = th_data->fd;
-            th_data->client = newUser;
-            th_data->users->push_back(newUser);
-            reply = START + LOGIN + DELIMITER + OK + END;
-            send = true;
-            cout << "Logged" << nick << endl;
-
+            if (ok) {
+                User *newUser = new User(nick, " ", true);
+                newUser->fd = th_data->fd;
+                th_data->client = newUser;
+                th_data->users->push_back(newUser);
+                reply = START + LOGIN + DELIMITER + OK + END;
+                send = true;
+                cout << "Logged" << nick << endl;
+            }
         } else if (command == LOGOUT) {
             th_data->users->remove_if([th_data](User *u) { return u->nick == th_data->client->nick; });
             if (th_data->client->activeRoom != nullptr) {
@@ -277,10 +271,11 @@ void *clientConectionHandler(void *data) {
             ssize_t n = write(th_data->fd, reply.c_str(), reply.size());
             send = false;
         }
+        if (!connected) {
+            close(th_data->fd);
+            break;
+        }
 
     }
-    cout << "\nClosing thread and conn" << endl;
-    close(th_data->fd);
-
 }
 
