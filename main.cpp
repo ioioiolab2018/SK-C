@@ -24,17 +24,16 @@ int main(int argc, char *argv[]) {
     bool run = true;
 
     //zainicjowana lista użytkownikow
-    list<User> users;
-    list<Room> rooms;
-    startUsers(&users);
-    startRooms(&rooms);
+    auto *users = new list<User *>;
+    auto *rooms = new list<Room *>;
+    startRooms(rooms);
     cout << "USERS #############" << endl;
-    for (auto &user : users) {
-        cout << user.nick << endl;
+    for (auto &user : *users) {
+        cout << user->nick << endl;
     }
     cout << "ROOMS #############" << endl;
-    for (auto &room : rooms) {
-        cout << room.Name << endl;
+    for (auto room : *rooms) {
+        cout << room->Name << endl;
     }
 
     struct sockaddr_in svrAdd;
@@ -94,12 +93,12 @@ int main(int argc, char *argv[]) {
             } else {
                 cout << "Connection successful" << endl;
             }
-            struct thread_data data;
-            data.users = &users;
-            data.rooms = &rooms;
-            data.client = nullptr;
-            data.fd = connFd;
-            pthread_create(&threadA[noThread], nullptr, clientConectionHandler, (void *) &data);
+            struct thread_data *data = new struct thread_data;
+            data->users = users;
+            data->rooms = rooms;
+            data->client = nullptr;
+            data->fd = connFd;
+            pthread_create(&threadA[noThread], nullptr, clientConectionHandler, (void *) data);
 
             noThread++;
         }
@@ -116,7 +115,7 @@ void split1(const std::string &str, Container &cont) {
 
 
 void *clientConectionHandler(void *data) {
-
+    bool connected = true;
     auto *th_data = (struct thread_data *) data;
 
     pthread_detach(pthread_self());
@@ -127,33 +126,32 @@ void *clientConectionHandler(void *data) {
     char buf[BUFF_SIZE];
     string message;
     string lastBuffer;
-    bool next= true;
+    bool next = true;
 
     while (run) {
         bzero(buf, BUFF_SIZE + 1);
-        if(next) {
+        if (next) {
             r = read(th_data->fd, buf, BUFF_SIZE);
         }
         if (r > 0 || !next) {
             message = buf;
             message = lastBuffer.append(message);
-            ssize_t start=message.find(START);
-            if(start == string::npos){
-                next= true;
-                lastBuffer=" ";
+            ssize_t start = message.find(START);
+            if (start == string::npos) {
+                next = true;
+                lastBuffer = " ";
                 continue;
             }
             message.erase(0, static_cast<unsigned long>(start));
 
-            ssize_t end =message.find(END);
-            if(end  == string::npos){
+            ssize_t end = message.find(END);
+            if (end == string::npos) {
                 lastBuffer = message;
                 continue;
-            }
-            else{
-                next=false;
-                lastBuffer=message.substr(static_cast<unsigned long>(end)+1, message.length());
-                message.erase(static_cast<unsigned long>(end), message.length()-1);
+            } else {
+                next = false;
+                lastBuffer = message.substr(static_cast<unsigned long>(end) + 1, message.length());
+                message.erase(static_cast<unsigned long>(end), message.length() - 1);
                 message.erase(0, 1);
             }
         } else {
@@ -165,100 +163,121 @@ void *clientConectionHandler(void *data) {
         //cout << message <<" RESZTA: "<< lastBuffer<< endl;
         //cout << "pierwsze slowo: " << get_first_word(message, DELIMITER) << endl;
         //cout << message << endl;
-
+        cout << "wiadomosc: " << message << endl;
         string command = get_first_word(message, DELIMITER);
+        bool send = false;
+        string reply;
 
         if (command == LOGIN) {
             string nick = get_first_word(message, DELIMITER);
             for (auto &user : *(th_data->users)) {
-                if (user.nick == nick) {
+                if (user->nick == nick) {
                     cout << "JEST JUZ TAKI UZYTKOWNIK" << endl;
-                    //TODO odsylanie wiadomosci
+                    reply = START + LOGIN + DELIMITER + NOT_OK + END;
+                    send = true;
                     continue;
                 }
+
             }
-            User newUser(nick, " ", true);
-            newUser.fd = th_data->fd;
-            th_data->client = &newUser;
+            User *newUser = new User(nick, " ", true);
+            newUser->fd = th_data->fd;
+            th_data->client = newUser;
             th_data->users->push_back(newUser);
-            //TODO odsylanie wiadomosci
-            cout << "zalogowano " << nick << endl;
+            reply = START + LOGIN + DELIMITER + OK + END;
+            send = true;
+            cout << "Logged" << nick << endl;
 
         } else if (command == LOGOUT) {
-            th_data->users->remove_if([th_data](User u) { return u.nick == th_data->client->nick; });
-            cout << "dsdsd" << endl;
+            th_data->users->remove_if([th_data](User *u) { return u->nick == th_data->client->nick; });
             if (th_data->client->activeRoom != nullptr) {
                 th_data->client->activeRoom->users->remove_if(
-                        [th_data](User u) { return u.nick == th_data->client->nick; });
+                        [th_data](User *u) { return u->nick == th_data->client->nick; });
             }
-            cout << "######" << endl;
-            close(th_data->fd);
-            break;
+            reply = START + LOGOUT + DELIMITER + OK + END;
+            send = true;
+            connected = false;
 
         } else if (command == ENTER) {
+            bool ok = false;
             string name = get_first_word(message, DELIMITER);
             for (auto &room : *(th_data->rooms)) {
-                if (room.Name == name) {
-                    room.users->push_back(*(th_data->client));
-                    th_data->client->activeRoom = &room;
-                    continue;
+                if (room->Name == name) {
+                    room->users->push_back(th_data->client);
+                    th_data->client->activeRoom = room;
+                    reply = START + ENTER + DELIMITER + OK + END;
+                    send = true;
+                    ok = true;
+                    break;
                 }
             }
-            //TODO odsylanie wiadomosci
-            cout << "Nie ma takiego pokoju" << endl;
+            if (!ok) {
+                reply = START + ENTER + DELIMITER + NOT_OK + END;
+                send = true;
+            }
 
         } else if (command == MESSAGE) {
+            if (th_data->client->activeRoom != nullptr) {
+                message = get_first_word(message, DELIMITER);
+                reply = START + MESSAGE + DELIMITER + message + END;
+                for (auto &user: *(th_data->client->activeRoom->users)) {
+                    if (user->logged && user->nick != th_data->client->nick) {
+                        cout << reply << endl;
+                        ssize_t n = write(user->fd, reply.c_str(), reply.size());
+                    }
+                }
+            }
 
         } else if (command == CREATE) {
+            bool ok = false;
+            string name = get_first_word(message, DELIMITER);
+            for (auto &room : *(th_data->rooms)) {
+                if (room->Name == name) {
+                    ok = true;
+                    break;
+                }
+            }
+            if (ok) {
+                th_data->rooms->push_back(new Room(name, " "));
+                reply = START + CREATE + DELIMITER + NOT_OK + END;
+                send = true;
+            } else {
+                reply = START + CREATE + DELIMITER + OK + END;
+                send = true;
+            }
 
         } else if (command == ROOM_LIST) {
+            send = true;
+            reply = START + ROOM_LIST + DELIMITER;
+            for (auto &room : *(th_data->rooms)) {
+                reply += room->Name + ";" + to_string(room->users->size()) + " ";
+            }
+            reply = reply.substr(0, reply.size() - 1);
+            reply += END;
 
+        } else if (command == EXIT) {
+            if (th_data->client->activeRoom != nullptr) {
+                th_data->client->activeRoom->users->remove_if(
+                        [th_data](User *u) { return u->nick == th_data->client->nick; });
+                th_data->client->activeRoom = nullptr;
+            }
+            reply = START + EXIT + DELIMITER + OK + END;
+            send = true;
+        } else if (command == USER_LIST) {
+            send = true;
+            reply = START + USER_LIST + DELIMITER;
+            for (auto &user : *(th_data->users)) {
+                reply += user->nick + " ";
+            }
+            reply = reply.substr(0, reply.size() - 1);
+            reply += END;
         }
 
-        /*
-         split1(buf, words);
-         if (!words.empty()) {
-             if (words[0] == "login") {
-                 cout << "logowanie #############" << endl;
-                 for (auto &user : *(th_data->users)) {
-                     if (user.nick == words[1]) {
-                         if (user.password == words[2]) {
-                             user.logged = true;
-                             user.fd = th_data->fd;
-                             th_data->client = &user;
-                             cout << "zalogowano user 1" << endl;
-                             char *od = const_cast<char *>("Zalogowano");
-                             write(user.fd, od, 9);
-                         } else {
-                             cout << user.nick << " zle hasło" << endl;
-                         }
-                     }
-                 }
-             }
-         }
-         if (!words.empty()) {
-             if (words[0] == "enter") {
-                 cout << "wchodzenie #############" << endl;
-                 for (auto &room : *(th_data->rooms)) {
-                     if (room.Name == words[1]) {
-                         th_data->client->activeRoom = &room;
-                         (room.users)->push_back(*(th_data->client));
-                     }
-                 }
-             }
-         }
+        if (send) { ;
+            cout << reply << endl;
+            ssize_t n = write(th_data->fd, reply.c_str(), reply.size());
+            send = false;
+        }
 
-         if (!words.empty()) {
-             if (words[0] == "message") {
-                 for (const auto &user: *(th_data->client->activeRoom->users)) {
-                     if (th_data->client->nick != user.nick) {
-                         char *od = const_cast<char *>(words[1].c_str());
-                         write(user.fd, od, sizeof(od));
-                     }
-                 }
-             }
-         }
-         */
     }
     cout << "\nClosing thread and conn" << endl;
     close(th_data->fd);

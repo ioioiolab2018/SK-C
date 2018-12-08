@@ -2,6 +2,10 @@
 
 #include <utility>
 
+#include <utility>
+
+#include <utility>
+
 //
 // Created by piotr on 03.12.18.
 //
@@ -10,18 +14,21 @@
 #define SK_COMMONS_H
 
 #include <list>
-#define START "&"
-#define END "%"
+
+#define START string("$")
+#define END "#"
 #define LOGIN "login"
 #define MESSAGE "message"
 #define ENTER "enter"
 #define CREATE "create"
 #define ROOM_LIST "rooms"
+#define USER_LIST "users"
+#define  EXIT "leave"
 #define OK "ok"
 #define NOT_OK "notOk"
 #define  LOGOUT "logout"
 #define BUFF_SIZE 100
-#define DELIMITER ";"
+#define DELIMITER ":"
 
 using namespace std;
 
@@ -33,9 +40,8 @@ class Message;
 
 struct thread_data;
 
-void startUsers(list<User> *users);
 
-void startRooms(list<Room> *rooms);
+void startRooms(list<Room *> *rooms);
 
 class User {
 public:
@@ -53,30 +59,22 @@ public:
                                                                                   fd(-1) {}
 };
 
-class Message {
-public:
-    int kod;
-    std::__cxx11::string arg1;
-    std::__cxx11::string arg2;
-    std::__cxx11::string arg3;
-    std::__cxx11::string message;
-};
 
 class Room {
 public:
     std::__cxx11::string Name;
     std::__cxx11::string password;
-    std::__cxx11::list<User> *users;
+    std::__cxx11::list<User *> *users;
 
-    Room(const string &Name, const string &password) : Name(Name), password(password) {
-        users = new list<User>();
+    Room(string Name, string password) : Name(std::move(Name)), password(std::move(password)) {
+        users = new list<User *>();
     }
 };
 
 struct thread_data {
     User *client;
-    list<User> *users;
-    list<Room> *rooms;
+    list<User *> *users;
+    list<Room *> *rooms;
     int fd;
 };
 
