@@ -253,15 +253,23 @@ void *clientConectionHandler(void *data) {
                 th_data->client->activeRoom->users->remove_if(
                         [th_data](User *u) { return u->nick == th_data->client->nick; });
                 th_data->client->activeRoom = nullptr;
+
             }
             reply = START + EXIT + DELIMITER + OK + END;
             send = true;
+
         } else if (command == USER_LIST) {
+            string name = get_first_word(message, DELIMITER);
             send = true;
             reply = START + USER_LIST + DELIMITER;
-            for (auto &user : *(th_data->users)) {
-                reply += user->nick + " ";
+            for (auto &room : *(th_data->rooms)) {
+                if (room->Name == name) {
+                    for (auto &user : *(room->users)) {
+                        reply += user->nick + " ";
+                    }
+                }
             }
+
             reply = reply.substr(0, reply.size() - 1);
             reply += END;
         }
