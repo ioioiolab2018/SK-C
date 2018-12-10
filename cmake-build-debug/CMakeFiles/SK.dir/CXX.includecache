@@ -12,9 +12,7 @@ utility
 list
 -
 
-/home/piotr/CLionProjects/SK-C/connectionHandler.h
-
-/home/piotr/CLionProjects/SK-C/main.cpp
+/home/piotr/CLionProjects/SK-C/connectionHandler.cpp
 string.h
 -
 unistd.h
@@ -27,10 +25,18 @@ list
 -
 Commons.h
 /home/piotr/CLionProjects/SK-C/Commons.h
-connectionHandler.h
-/home/piotr/CLionProjects/SK-C/connectionHandler.h
+iterator
+-
+vector
+-
+messageTools.h
+/home/piotr/CLionProjects/SK-C/messageTools.h
 serverStatements.h
 /home/piotr/CLionProjects/SK-C/serverStatements.h
+
+/home/piotr/CLionProjects/SK-C/messageTools.h
+string
+-
 
 /home/piotr/CLionProjects/SK-C/serverStatements.h
 

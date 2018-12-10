@@ -15,7 +15,6 @@ void *serverManagementFunction(void *run);
 
 int main() {
     int port, serverFd;
-
     pthread_mutex_t usersMutex = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_t roomsMutex = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_t connectionMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -52,6 +51,11 @@ int main() {
     svrAdd.sin_addr.s_addr = INADDR_ANY;
     svrAdd.sin_port = htons(static_cast<uint16_t>(port));
 
+    struct timeval tv;
+    tv.tv_sec = 1;
+    tv.tv_usec = 0;
+    setsockopt(serverFd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &tv, sizeof tv);
+
     //bind socket
     if (bind(serverFd, (struct sockaddr *) &svrAdd, sizeof(svrAdd)) < 0) {
         cerr << "Cannot bind" << endl;
@@ -64,20 +68,22 @@ int main() {
 
     //liczba klientow/wątków
     pthread_t serverThread;
+    pthread_t serverThread2;
     pthread_create(&serverThread, nullptr, serverManagementFunction, (void *) &run);
 
-
+    list<bool *> clientThreadIsRun;
+    cout << "Listening" << endl;
     while (run) {
-        cout << "Listening" << endl;
         //this is where client connects. svr will hang in this mode until client conn
         int connFd = accept(serverFd, (struct sockaddr *) &clntAdd, &len);
 
         if (connFd < 0) {
-            cerr << "Cannot accept connection" << endl;
-            return 0;
+            continue;
         } else {
             cout << "Connection successful" << endl;
         }
+
+        bool *isThreadRun = new bool(true);
 
         auto *data = new struct thread_data;
         data->users = users;
@@ -85,17 +91,27 @@ int main() {
         data->client = nullptr;
         data->fd = connFd;
         data->mutex = mutex;
-
+        data->run = isThreadRun;
         auto *clientThread = new pthread_t();
         threads.push_back(clientThread);
+        clientThreadIsRun.push_back(isThreadRun);
         pthread_create(clientThread, nullptr, clientConectionHandler, (void *) data);
     }
+
+    for (auto &item : clientThreadIsRun) {
+        *item = false;
+    }
+    for (auto &thread : threads) {
+        pthread_join(*thread, NULL);
+    }
+
+    close(serverFd);
 }
+
 
 
 void *serverManagementFunction(void *run) {
     auto *isRun = (bool *) run;
-    cout << "zamyaknie dziala" << endl;
     pthread_detach(pthread_self());
     string command;
     while (true) {

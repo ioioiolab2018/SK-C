@@ -45,6 +45,7 @@ public:
 };
 
 struct thread_data {
+    bool *run;
     pthread_mutex_t **mutex;
     User *client;
     list<User *> *users;
