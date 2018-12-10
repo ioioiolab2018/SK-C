@@ -145,8 +145,16 @@ void *clientConectionHandler(void *data) {
                 pthread_mutex_lock(roomsMutex);
                 for (auto &room : *(th_data->rooms)) {
                     if (room->Name == name) {
-                        room->users->push_back(th_data->client);
-
+                        bool ok = true;
+                        for (auto &user : *(room->users)) {
+                            if (user->nick == th_data->client->nick) {
+                                ok = false;
+                                break;
+                            }
+                        }
+                        if (ok) {
+                            room->users->push_back(th_data->client);
+                        }
                         pthread_mutex_lock(usersMutex);
                         th_data->client->activeRoom = room;
                         pthread_mutex_unlock(usersMutex);

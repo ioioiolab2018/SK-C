@@ -51,7 +51,8 @@ int main() {
     svrAdd.sin_addr.s_addr = INADDR_ANY;
     svrAdd.sin_port = htons(static_cast<uint16_t>(port));
 
-    struct timeval tv;
+    // Zmiane ustwaien socket, dodanie timeout
+    struct timeval tv{};
     tv.tv_sec = 1;
     tv.tv_usec = 0;
     setsockopt(serverFd, SOL_SOCKET, SO_RCVTIMEO, (const char *) &tv, sizeof tv);
@@ -102,14 +103,14 @@ int main() {
         *item = false;
     }
     for (auto &thread : threads) {
-        pthread_join(*thread, NULL);
+        pthread_join(*thread, nullptr);
     }
 
     close(serverFd);
 }
 
 
-
+// Zamykanie serwera
 void *serverManagementFunction(void *run) {
     auto *isRun = (bool *) run;
     pthread_detach(pthread_self());
