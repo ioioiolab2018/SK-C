@@ -9,10 +9,14 @@
 using namespace std;
 
 
-void startUsers(list<User> *users) {
+void startRooms(list<Room *> *rooms) {
+    rooms->push_back(new Room("FirstRoom", ""));
+    rooms->push_back(new Room("LastRoom", ""));
 }
 
-void startRooms(list<Room *> *rooms) {
-    rooms->push_back(new Room("pok1", "admin"));
-    rooms->push_back(new Room("pok2", "admin"));
-}
+User::User(std::__cxx11::string nick, std::__cxx11::string password, bool logged) : nick(std::move(nick)),
+                                                                                    password(std::move(
+                                                                                            password)),
+                                                                                    activeRoom(NULL),
+                                                                                    logged(logged),
+                                                                                    fd(-1) {}

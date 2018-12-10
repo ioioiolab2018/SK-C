@@ -5,8 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/piotr/CLionProjects/SK-C/Commons.cpp" "/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles/SK.dir/Commons.cpp.o"
+  "/home/piotr/CLionProjects/SK-C/connectionHandler.cpp" "/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles/SK.dir/connectionHandler.cpp.o"
   "/home/piotr/CLionProjects/SK-C/main.cpp" "/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles/SK.dir/main.cpp.o"
-  "/home/piotr/CLionProjects/SK-C/stringCommons.cpp" "/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles/SK.dir/stringCommons.cpp.o"
+  "/home/piotr/CLionProjects/SK-C/messageTools.cpp" "/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles/SK.dir/messageTools.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -9,14 +9,10 @@
 /home/piotr/CLionProjects/SK-C/Commons.h
 utility
 -
-utility
--
-utility
--
-utility
--
 list
 -
+
+/home/piotr/CLionProjects/SK-C/connectionHandler.h
 
 /home/piotr/CLionProjects/SK-C/main.cpp
 string.h
@@ -31,18 +27,10 @@ list
 -
 Commons.h
 /home/piotr/CLionProjects/SK-C/Commons.h
-sstream
--
-algorithm
--
-iterator
--
-vector
--
-stringCommons.h
-/home/piotr/CLionProjects/SK-C/stringCommons.h
+connectionHandler.h
+/home/piotr/CLionProjects/SK-C/connectionHandler.h
+serverStatements.h
+/home/piotr/CLionProjects/SK-C/serverStatements.h
 
-/home/piotr/CLionProjects/SK-C/stringCommons.h
-string
--
+/home/piotr/CLionProjects/SK-C/serverStatements.h
 

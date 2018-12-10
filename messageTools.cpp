@@ -2,7 +2,7 @@
 // Created by piotr on 07.12.18.
 //
 
-#include "stringCommons.h"
+#include "messageTools.h"
 #include "Commons.h"
 
 std::string trim_copy(const std::string &s, const string &delimiters) {
