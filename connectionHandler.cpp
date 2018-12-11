@@ -145,27 +145,30 @@ void *clientConectionHandler(void *data) {
                 pthread_mutex_lock(roomsMutex);
                 for (auto &room : *(th_data->rooms)) {
                     if (room->Name == name) {
-                        bool ok = true;
+                        bool okName = true;
                         for (auto &user : *(room->users)) {
                             if (user->nick == th_data->client->nick) {
-                                ok = false;
+                                okName = false;
                                 break;
                             }
                         }
-                        if (ok) {
+                        if (okName) {
                             room->users->push_back(th_data->client);
-                        }
+                            }
                         pthread_mutex_lock(usersMutex);
+
                         th_data->client->activeRoom = room;
                         pthread_mutex_unlock(usersMutex);
 
                         reply = START + ENTER + DELIMITER + OK + END;
+
                         send = true;
                         ok = true;
                         break;
                     }
                 }
                 pthread_mutex_unlock(roomsMutex);
+
 
                 // blad, jesli nie ma pokoju o podanej nazwie
                 if (!ok) {
