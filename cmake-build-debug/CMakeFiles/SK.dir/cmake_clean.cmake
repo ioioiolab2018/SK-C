@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/SK.dir/Commons.cpp.o"
   "CMakeFiles/SK.dir/messageTools.cpp.o"
   "CMakeFiles/SK.dir/connectionHandler.cpp.o"
+  "CMakeFiles/SK.dir/connectionFunctions.cpp.o"
   "SK.pdb"
   "SK"
 )

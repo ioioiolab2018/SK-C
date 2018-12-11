@@ -90,6 +90,12 @@
 		<Unit filename="/home/piotr/CLionProjects/SK-C/Commons.h">
 			<Option target="SK"/>
 		</Unit>
+		<Unit filename="/home/piotr/CLionProjects/SK-C/connectionFunctions.cpp">
+			<Option target="SK"/>
+		</Unit>
+		<Unit filename="/home/piotr/CLionProjects/SK-C/connectionFunctions.h">
+			<Option target="SK"/>
+		</Unit>
 		<Unit filename="/home/piotr/CLionProjects/SK-C/connectionHandler.cpp">
 			<Option target="SK"/>
 		</Unit>

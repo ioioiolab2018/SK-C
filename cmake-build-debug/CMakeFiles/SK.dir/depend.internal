@@ -4,8 +4,15 @@
 CMakeFiles/SK.dir/Commons.cpp.o
  /home/piotr/CLionProjects/SK-C/Commons.cpp
  /home/piotr/CLionProjects/SK-C/Commons.h
+CMakeFiles/SK.dir/connectionFunctions.cpp.o
+ /home/piotr/CLionProjects/SK-C/Commons.h
+ /home/piotr/CLionProjects/SK-C/connectionFunctions.cpp
+ /home/piotr/CLionProjects/SK-C/connectionFunctions.h
+ /home/piotr/CLionProjects/SK-C/messageTools.h
+ /home/piotr/CLionProjects/SK-C/serverStatements.h
 CMakeFiles/SK.dir/connectionHandler.cpp.o
  /home/piotr/CLionProjects/SK-C/Commons.h
+ /home/piotr/CLionProjects/SK-C/connectionFunctions.h
  /home/piotr/CLionProjects/SK-C/connectionHandler.cpp
  /home/piotr/CLionProjects/SK-C/messageTools.h
  /home/piotr/CLionProjects/SK-C/serverStatements.h

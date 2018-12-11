@@ -12,6 +12,14 @@ utility
 list
 -
 
+/home/piotr/CLionProjects/SK-C/connectionFunctions.h
+Commons.h
+/home/piotr/CLionProjects/SK-C/Commons.h
+pthread.h
+-
+string
+-
+
 /home/piotr/CLionProjects/SK-C/connectionHandler.cpp
 string.h
 -
@@ -33,6 +41,8 @@ messageTools.h
 /home/piotr/CLionProjects/SK-C/messageTools.h
 serverStatements.h
 /home/piotr/CLionProjects/SK-C/serverStatements.h
+connectionFunctions.h
+/home/piotr/CLionProjects/SK-C/connectionFunctions.h
 
 /home/piotr/CLionProjects/SK-C/messageTools.h
 string

@@ -150,6 +150,33 @@ Commons.cpp.s:
 	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/Commons.cpp.s
 .PHONY : Commons.cpp.s
 
+connectionFunctions.o: connectionFunctions.cpp.o
+
+.PHONY : connectionFunctions.o
+
+# target to build an object file
+connectionFunctions.cpp.o:
+	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/connectionFunctions.cpp.o
+.PHONY : connectionFunctions.cpp.o
+
+connectionFunctions.i: connectionFunctions.cpp.i
+
+.PHONY : connectionFunctions.i
+
+# target to preprocess a source file
+connectionFunctions.cpp.i:
+	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/connectionFunctions.cpp.i
+.PHONY : connectionFunctions.cpp.i
+
+connectionFunctions.s: connectionFunctions.cpp.s
+
+.PHONY : connectionFunctions.s
+
+# target to generate assembly for a file
+connectionFunctions.cpp.s:
+	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/connectionFunctions.cpp.s
+.PHONY : connectionFunctions.cpp.s
+
 connectionHandler.o: connectionHandler.cpp.o
 
 .PHONY : connectionHandler.o
@@ -243,6 +270,9 @@ help:
 	@echo "... Commons.o"
 	@echo "... Commons.i"
 	@echo "... Commons.s"
+	@echo "... connectionFunctions.o"
+	@echo "... connectionFunctions.i"
+	@echo "... connectionFunctions.s"
 	@echo "... connectionHandler.o"
 	@echo "... connectionHandler.i"
 	@echo "... connectionHandler.s"

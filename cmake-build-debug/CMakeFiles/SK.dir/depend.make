@@ -4,7 +4,14 @@
 CMakeFiles/SK.dir/Commons.cpp.o: ../Commons.cpp
 CMakeFiles/SK.dir/Commons.cpp.o: ../Commons.h
 
+CMakeFiles/SK.dir/connectionFunctions.cpp.o: ../Commons.h
+CMakeFiles/SK.dir/connectionFunctions.cpp.o: ../connectionFunctions.cpp
+CMakeFiles/SK.dir/connectionFunctions.cpp.o: ../connectionFunctions.h
+CMakeFiles/SK.dir/connectionFunctions.cpp.o: ../messageTools.h
+CMakeFiles/SK.dir/connectionFunctions.cpp.o: ../serverStatements.h
+
 CMakeFiles/SK.dir/connectionHandler.cpp.o: ../Commons.h
+CMakeFiles/SK.dir/connectionHandler.cpp.o: ../connectionFunctions.h
 CMakeFiles/SK.dir/connectionHandler.cpp.o: ../connectionHandler.cpp
 CMakeFiles/SK.dir/connectionHandler.cpp.o: ../messageTools.h
 CMakeFiles/SK.dir/connectionHandler.cpp.o: ../serverStatements.h

@@ -10,7 +10,6 @@
 
 #include <list>
 
-
 using namespace std;
 
 class Room;
@@ -26,10 +25,12 @@ public:
     std::__cxx11::string nick;
     std::__cxx11::string password;
     Room *activeRoom;
-    int fd;
+    int *fd;
     bool logged;
 
     User(std::__cxx11::string nick, std::__cxx11::string password, bool logged);
+
+    virtual ~User();
 };
 
 
@@ -42,15 +43,20 @@ public:
     Room(string Name, string password) : Name(std::move(Name)), password(std::move(password)) {
         users = new list<User *>();
     }
+
+    virtual ~Room();
 };
 
+
 struct thread_data {
-    bool *run;
-    pthread_mutex_t **mutex;
-    User *client;
-    list<User *> *users;
-    list<Room *> *rooms;
-    int fd;
+    virtual ~thread_data();
+
+    bool *run{};
+    pthread_mutex_t **mutex{};
+    User *client{};
+    list<User *> *users{};
+    list<Room *> *rooms{};
+    int * fd;
 };
 
 

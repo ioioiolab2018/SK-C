@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/piotr/CLionProjects/SK-C/cmake-build-debug
 CMakeFiles/SK.dir/all:
 	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/depend
 	$(MAKE) -f CMakeFiles/SK.dir/build.make CMakeFiles/SK.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target SK"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target SK"
 .PHONY : CMakeFiles/SK.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/SK.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SK.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SK.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/piotr/CLionProjects/SK-C/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/SK.dir/rule

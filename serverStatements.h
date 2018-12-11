@@ -5,7 +5,7 @@
 #ifndef SK_SERVERSTATEMENTS_H
 #define SK_SERVERSTATEMENTS_H
 
-#define PORT 7000
+#define PORT 7070
 #define START string("$")
 #define END "#"
 #define LOGIN "login"
