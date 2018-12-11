@@ -1,4 +1,1 @@
-/home/piotr/Clion/clion-2018.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/piotr/CLionProjects/SK-C
--- Configuring done
--- Generating done
--- Build files have been written to: /home/piotr/CLionProjects/SK-C/cmake-build-debug
+CMakeLists.txt not found in /home/piotr/CLionProjects/SK-C Select CMakeLists.txt file...
