@@ -50,6 +50,6 @@ You can [download](https://github.com/ioioiolab2018/SK-C/releases) the latest in
 
 ## Build instruction
 
-- To compile you need Cmake at least 3.10
+- To compile you need Cmake at least v3.10
 - To build server run copile.sh, startup program in compiled as serverRun.exec
 - Server works only on linux
