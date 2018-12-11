@@ -109,23 +109,36 @@ void *clientConectionHandler(void *data) {
 
                 //##### LOGOUT #####
             } else if (command == LOGOUT) {
-                // usuniecie uzytkownika z listy users
-                logout:
-                pthread_mutex_lock(usersMutex);
-                th_data->users->remove_if([th_data](User *u) { return u->nick == th_data->client->nick; });
-                pthread_mutex_unlock(usersMutex);
+
 
                 // usuniecie uzytkownika z pokoju w ktorym sie znajdowal
                 pthread_mutex_lock(roomsMutex);
+                pthread_mutex_lock(usersMutex);
                 if (th_data->client->activeRoom != nullptr) {
                     th_data->client->activeRoom->users->remove_if(
                             [th_data](User *u) { return u->nick == th_data->client->nick; });
                     //usuniecie pustyc pokojow
                     if (th_data->client->activeRoom->users->empty()) {
                         th_data->rooms->remove_if(
-                                [th_data](Room *r) { return r->Name == th_data->client->activeRoom->Name; });
+                                [th_data](Room *r) {
+                                    if (r->Name == th_data->client->activeRoom->Name) {
+                                        delete (&r);
+                                        return true;
+                                    } else return false;
+                                });
                     }
                 }
+                // usuniecie uzytkownika z listy users
+
+                th_data->users->remove_if([th_data](User *u) {
+                    if (u->nick == th_data->client->nick) {
+                        delete (&u);
+                        return true;
+                    } else
+                        return false;
+                });
+
+                pthread_mutex_unlock(usersMutex);
                 pthread_mutex_unlock(roomsMutex);
 
                 send = true;
@@ -154,7 +167,7 @@ void *clientConectionHandler(void *data) {
                         }
                         if (okName) {
                             room->users->push_back(th_data->client);
-                            }
+                        }
                         pthread_mutex_lock(usersMutex);
 
                         th_data->client->activeRoom = room;
@@ -226,7 +239,6 @@ void *clientConectionHandler(void *data) {
                 }
                 pthread_mutex_unlock(roomsMutex);
 
-                reply = reply.substr(0, reply.size() - 1);
                 reply += END;
 
 
@@ -274,21 +286,34 @@ void *clientConectionHandler(void *data) {
         if (!*th_data->run) {
             cout << "zamykanie watku" << endl;
             next = false;
-            pthread_mutex_lock(usersMutex);
-            th_data->users->remove_if([th_data](User *u) { return u->nick == th_data->client->nick; });
-            pthread_mutex_unlock(usersMutex);
-
             // usuniecie uzytkownika z pokoju w ktorym sie znajdowal
             pthread_mutex_lock(roomsMutex);
+            pthread_mutex_lock(usersMutex);
             if (th_data->client->activeRoom != nullptr) {
                 th_data->client->activeRoom->users->remove_if(
                         [th_data](User *u) { return u->nick == th_data->client->nick; });
-                //usuniecie pustyc pokojow
+                //usuniecie pustych pokojow
                 if (th_data->client->activeRoom->users->empty()) {
                     th_data->rooms->remove_if(
-                            [th_data](Room *r) { return r->Name == th_data->client->activeRoom->Name; });
+                            [th_data](Room *r) {
+                                if (r->Name == th_data->client->activeRoom->Name) {
+                                    delete (&r);
+                                    return true;
+                                } else return false;
+                            });
                 }
             }
+            // usuniecie uzytkownika z listy users
+
+            th_data->users->remove_if([th_data](User *u) {
+                if (u->nick == th_data->client->nick) {
+                    delete (&u);
+                    return true;
+                } else
+                    return false;
+            });
+
+            pthread_mutex_unlock(usersMutex);
             pthread_mutex_unlock(roomsMutex);
 
             send = true;
@@ -307,11 +332,10 @@ void *clientConectionHandler(void *data) {
         //zakonczenie dzialania watku
         if (!connected) {
             close(th_data->fd);
-            cout << "koniec" << endl;
+            cout << "Koniec obslugi klienta" << endl;
             break;
         }
         check = false;
     }
     return nullptr;
-
 }
