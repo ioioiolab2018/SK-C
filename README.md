@@ -46,10 +46,10 @@ You can [download](https://github.com/ioioiolab2018/SK-C/releases) the latest in
 
 ## You may also like
 
--   [SK-IRC Server](https://github.com/ioioiolab2018/SK-Java) - IRC app for this server.
+-   [SK-IRC CLIENT](https://github.com/ioioiolab2018/SK-Java) - IRC app for this server.
 
 ## Build instruction
 
 - To compile you need Cmake at least v3.10
-- To build server run copile.sh, startup program in compiled as serverRun.exec
+- To build server run compile.sh, startup program in compiled as serverRun.exec
 - Server works only on linux
