@@ -6,7 +6,6 @@ Simple chat server created with C++ and Socket.
 
 -   [General info](#general-info)
 -   [Description of the communication protocol](#description-of-the-communication-protocol)
--   [Download](#download)
 -   [You may also like](#you-may-also-like)
 -   [Build instruction](build-instruction)
 ## General info
@@ -40,9 +39,7 @@ This project is simple IRC chat. It was created for completing the subject of Co
 | \$message:useraname;message;sentDate# | none                                          | none                        |
 | Sent message                          | \$message:useraname;message;sentDate#         | none                        |
 
-## Download
 
-You can [download](https://github.com/ioioiolab2018/SK-C/releases) the latest installable version of SK-IRC client for Windows, Linux and macOS.
 
 ## You may also like
 
