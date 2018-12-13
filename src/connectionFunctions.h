@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void sendToClient(int * fd, thread_data *th_data, string &reply); // wyslanie  wiadomosci z reply do  uzytkownika
+void sendToClient(int * fd,User * user , thread_data *th_data, string &reply); // wyslanie  wiadomosci z reply do  uzytkownika
 
 void createRoomFunction(thread_data *th_data, string &message); // dodanie nowego pokoju
 

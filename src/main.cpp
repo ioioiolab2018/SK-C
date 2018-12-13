@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     // Mutexy
     pthread_mutex_t usersMutex = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_t roomsMutex = PTHREAD_MUTEX_INITIALIZER;
-    pthread_mutex_t connectionMutex = PTHREAD_MUTEX_INITIALIZER;
+    pthread_mutex_t connectionMutex = PTHREAD_MUTEX_INITIALIZER; // nie używany
     pthread_mutex_t *mutex[3] = {&usersMutex, &roomsMutex, &connectionMutex};
 
     socklen_t len; // długosc adresu

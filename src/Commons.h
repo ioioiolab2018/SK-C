@@ -25,6 +25,7 @@ public:
     std::__cxx11::string nick;
     std::__cxx11::string password;
     Room *activeRoom;
+    pthread_mutex_t* clientMutex;
     int *fd;
     bool logged;
 

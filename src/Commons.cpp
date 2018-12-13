@@ -11,6 +11,7 @@ using namespace std;
 
 User::~User(){
     delete(fd);
+    delete(clientMutex);
 }
 
 
