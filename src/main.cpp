@@ -86,8 +86,9 @@ int main(int argc, char *argv[]) {
 
         int connFd = accept(serverFd, (struct sockaddr *) &clntAdd, &len);
         if (connFd < 0) {
-            error++;
-            if( error > 2 && errno != EAGAIN){ // wylaczenie serwera po błędzie innym n
+
+            if( error > 2 && errno != EAGAIN){ // wylaczenie serwera po błędzie innym niz EAGAIN
+                error++;
                 cout << "Awaria, serwer zostanie wylaczony" << endl;
                 run= false;
             }else {

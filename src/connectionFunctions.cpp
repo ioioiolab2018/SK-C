@@ -297,7 +297,7 @@ void sendToClient(int *fd,User * user,  thread_data *th_data, string &reply) {
     int error = 0;
     while (writing && !reply.empty()) {
         ssize_t n = write(*fd, reply.c_str(), reply.size());
-        if (n < 0  ) {
+        if (n < 0 ) {
             error++;
             if (error > 5) {
                 cerr << "Bład połącznia z klientem!" << endl;

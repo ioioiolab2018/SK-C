@@ -20,7 +20,7 @@ void *clientConectionHandler(void *data) {
     bool connected = true;
     bool check = false;
     auto *th_data = (struct thread_data *) data;
-
+    int error=0;
     cout << "New client, thread No: " << pthread_self() << endl;
 
     ssize_t r = 0;
@@ -63,8 +63,19 @@ void *clientConectionHandler(void *data) {
             }
 
         } else {
+            if (r <= 0 && errno != EAGAIN) {
+                    cout << "Błąd polaczenia z klientem" << endl;
+                    error++;
+                    if(error > 2){
+                        *th_data->run=false;
+                    }
+                }else {
+                    error = 0;
+            }
             check = true;
+            next= true;
         }
+
 
 
         string reply;
