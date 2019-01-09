@@ -1,0 +1,66 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_7f1cc/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_7f1cc.dir/build.make CMakeFiles/cmTC_7f1cc.dir/build
+gmake[1]: Entering directory '/homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7f1cc.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_7f1cc.dir/CheckSymbolExists.c.o   -c /homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_7f1cc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f1cc.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_7f1cc.dir/CheckSymbolExists.c.o  -o cmTC_7f1cc 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_7f1cc.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_7f1cc.dir/build.make:98: cmTC_7f1cc] Error 1
+gmake[1]: Leaving directory '/homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_7f1cc/fast] Error 2
+
+File /homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_717fd/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_717fd.dir/build.make CMakeFiles/cmTC_717fd.dir/build
+gmake[1]: Entering directory '/homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_717fd.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_717fd.dir/CheckSymbolExists.c.o   -c /homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_717fd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_717fd.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_717fd.dir/CheckSymbolExists.c.o  -o cmTC_717fd 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_717fd.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_717fd.dir/build.make:98: cmTC_717fd] Error 1
+gmake[1]: Leaving directory '/homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_717fd/fast] Error 2
+
+File /homex/student/Desktop/SK-C/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

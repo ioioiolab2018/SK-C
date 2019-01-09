@@ -178,6 +178,9 @@ void logoutFunction(thread_data *th_data, bool &connected) {
     // usuniecie uzytkownika z pokoju w ktorym sie znajdowal
 
     exitFunction(th_data); // wyjscie z pokoju
+      //odeslanie potwierdzenia
+    reply = START + LOGOUT + DELIMITER + OK + END;
+    sendToClient(th_data->fd, th_data->client,  th_data, reply);
 
     pthread_mutex_lock(usersMutex);
     // usuniecie uzytkownika z listy users
@@ -190,9 +193,7 @@ void logoutFunction(thread_data *th_data, bool &connected) {
     });
     pthread_mutex_unlock(usersMutex);
 
-    //odeslanie potwierdzenia
-    reply = START + LOGOUT + DELIMITER + OK + END;
-    sendToClient(th_data->fd, th_data->client,  th_data, reply);
+  
 
     connected = false;
 }

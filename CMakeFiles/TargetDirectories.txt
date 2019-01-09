@@ -1,0 +1,3 @@
+/homex/student/Desktop/SK-C/CMakeFiles/rebuild_cache.dir
+/homex/student/Desktop/SK-C/CMakeFiles/SK.dir
+/homex/student/Desktop/SK-C/CMakeFiles/edit_cache.dir
